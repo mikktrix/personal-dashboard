@@ -10,7 +10,7 @@ app.use(express.json());
 
 // cors origin URL - Allow inbound traffic from origin
 corsOptions = {
-  origin: "https://immense-shore-76629.herokuapp.com/",
+  origin: "https://personal-dashboard-mv.herokuapp.com",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));
