@@ -19,14 +19,18 @@ corsOptions = {
 app.use(cors());
 
 // DB Config Heroku
-const dbProd = process.env.MONGODB_URL;
+const dbProd =
+  "mongodb+srv://MikkV:MikkV@mern-stack-todo-1ufj8.mongodb.net/test?retryWrites=true&w=majority";
 //DB config development
 const dbDev = config.get("mongoURI");
 
 // Connect to Mongo
 if (process.env.NODE_ENV == "production") {
   mongoose
-    .connect(dbProd, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(
+      "mongodb+srv://MikkV:MikkV@mern-stack-todo-1ufj8.mongodb.net/test?retryWrites=true&w=majority",
+      { useNewUrlParser: true, useUnifiedTopology: true }
+    )
     .then(() => console.log("MongoDB Connected..."))
     .catch((err) => console.log(err));
 } else {
@@ -41,7 +45,7 @@ app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
 
 //Serve static assets in production
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV == "production") {
   //Set static folder
   app.use(express.static("client/build"));
 
