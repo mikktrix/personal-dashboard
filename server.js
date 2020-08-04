@@ -4,7 +4,9 @@ const path = require("path");
 const config = require("config");
 const app = express();
 const cors = require("cors");
+const dotenv = require("dotenv");
 
+dotenv.config();
 // Bodyparser Middleware
 app.use(express.json());
 
@@ -22,7 +24,7 @@ const dbProd = process.env.MONGODB_URL;
 const dbDev = config.get("mongoURI");
 
 // Connect to Mongo
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV == "production") {
   mongoose
     .connect(dbProd, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB Connected..."))
