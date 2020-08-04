@@ -13,11 +13,11 @@ corsOptions = {
   origin: "https://personal-dashboard-mv.herokuapp.com",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
-app.use(cors(corsOptions));
+
+app.use(cors());
 
 // DB Config Heroku
-const dbProd =
-  "mongodb+srv://MikkV:OTnjzFgiu6AFc9pE@mern-stack-todo-1ufj8.mongodb.net/test?retryWrites=true&w=majority"; // process.env.MONGODB_URL;
+const dbProd = process.env.MONGODB_URL;
 //DB config development
 const dbDev = config.get("mongoURI");
 
@@ -50,7 +50,7 @@ if (process.env.NODE_ENV === "production") {
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(port, () => console.log(`Server started on PORT ${port}`));
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));

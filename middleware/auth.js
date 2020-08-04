@@ -1,4 +1,7 @@
-const config = process.env.JWTSECRET; //require('config'); config.get('jwtSecret')
+const config = require("../config");
+
+const { JWTSECRET } = config;
+
 const jwt = require("jsonwebtoken");
 
 function auth(req, res, next) {
@@ -11,7 +14,7 @@ function auth(req, res, next) {
 
   try {
     //Verify token
-    const decoded = jwt.verify(token, config);
+    const decoded = jwt.verify(token, JWTSECRET);
 
     //Add user from payload
     req.user = decoded;
