@@ -16,7 +16,8 @@ corsOptions = {
 app.use(cors(corsOptions));
 
 // DB Config Heroku
-const dbProd = process.env.MONGODB_URL;
+const dbProd =
+  "mongodb+srv://MikkV:OTnjzFgiu6AFc9pE@mern-stack-todo-1ufj8.mongodb.net/test?retryWrites=true&w=majority"; // process.env.MONGODB_URL;
 //DB config development
 const dbDev = config.get("mongoURI");
 
