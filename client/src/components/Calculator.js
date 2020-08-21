@@ -75,7 +75,12 @@ const Calculator = () => {
             name="accountSize"
             id="accountSize"
             placeholder="10 000"
-            onChange={(e) => setAccountSize(parseInt(e.target.value))}
+            onChange={(e) => {
+              const amount = e.target.value;
+              if (!amount || amount.match(/^\d{1,}(\.\d{0,4})?$/)) {
+                setAccountSize(Number(amount));
+              }
+            }}
           />
         </FormGroup>
         <FormGroup>
@@ -85,7 +90,12 @@ const Calculator = () => {
             name="portfolioRisk"
             id="portfolioRisk"
             value={2}
-            onChange={(e) => setPortfolioRisk(parseInt(e.target.value))}>
+            onChange={(e) => {
+              const amount = e.target.value;
+              if (!amount || amount.match(/^\d{1,}(\.\d{0,4})?$/)) {
+                setPortfolioRisk(Number(amount));
+              }
+            }}>
             <option>1</option>
             <option>1.5</option>
             <option>2</option>
@@ -99,7 +109,12 @@ const Calculator = () => {
             name="riskReturnRatio"
             id="riskReturnRatio"
             value={2}
-            onChange={(e) => setRiskRatio(parseInt(e.target.value))}>
+            onChange={(e) => {
+              const amount = e.target.value;
+              if (!amount || amount.match(/^\d{1,}(\.\d{0,4})?$/)) {
+                setRiskRatio(Number(amount));
+              }
+            }}>
             <option>1.5</option>
             <option>2</option>
             <option>2.5</option>
@@ -113,7 +128,12 @@ const Calculator = () => {
             name="entryPrice"
             id="entryPrice"
             placeholder="0"
-            onChange={(e) => setEntryPrice(parseInt(e.target.value))}
+            onChange={(e) => {
+              const amount = e.target.value;
+              if (!amount || amount.match(/^\d{1,}(\.\d{0,4})?$/)) {
+                setEntryPrice(Number(amount));
+              }
+            }}
           />
         </FormGroup>
         <FormGroup>
@@ -123,7 +143,12 @@ const Calculator = () => {
             name="stopLoss"
             id="stopLoss"
             placeholder="0"
-            onChange={(e) => setStopLoss(parseInt(e.target.value))}
+            onChange={(e) => {
+              const amount = e.target.value;
+              if (!amount || amount.match(/^\d{1,}(\.\d{0,4})?$/)) {
+                setStopLoss(Number(amount));
+              }
+            }}
           />
         </FormGroup>
       </Form>
